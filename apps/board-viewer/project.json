@@ -1,0 +1,72 @@
+{
+  "root": "apps/board-viewer",
+  "sourceRoot": "apps/board-viewer/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/board-viewer",
+        "index": "apps/board-viewer/src/index.html",
+        "baseHref": "/",
+        "main": "apps/board-viewer/src/main.tsx",
+        "polyfills": "apps/board-viewer/src/polyfills.ts",
+        "tsConfig": "apps/board-viewer/tsconfig.app.json",
+        "assets": [
+          "apps/board-viewer/src/favicon.ico",
+          "apps/board-viewer/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/board-viewer/src/environments/environment.ts",
+              "with": "apps/board-viewer/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "board-viewer:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "board-viewer:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/board-viewer/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/board-viewer"],
+      "options": {
+        "jestConfig": "apps/board-viewer/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

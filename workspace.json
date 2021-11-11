@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "board-viewer": "apps/board-viewer",
+    "board-viewer-e2e": "apps/board-viewer-e2e"
+  }
+}
