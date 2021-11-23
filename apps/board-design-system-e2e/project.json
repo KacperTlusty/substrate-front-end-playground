@@ -1,0 +1,28 @@
+{
+  "root": "apps/board-design-system-e2e",
+  "sourceRoot": "apps/board-design-system-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/board-design-system-e2e/cypress.json",
+        "devServerTarget": "board-design-system:storybook"
+      },
+      "configurations": {
+        "ci": {
+          "devServerTarget": "board-design-system:storybook:ci"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/board-design-system-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["board-design-system"]
+}
