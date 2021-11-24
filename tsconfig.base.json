@@ -17,7 +17,8 @@
     "paths": {
       "@board-substrate/board-design-system": [
         "libs/board-design-system/src/index.ts"
-      ]
+      ],
+      "@board-substrate/main-board": ["libs/main-board/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
